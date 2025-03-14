@@ -1,11 +1,184 @@
-<DOCTYPE HTML>
-    <html>
-        <head>
-            <link rel="stylesheet" href="latihan-css.css" preload>
-            <title>Latihan CSS</title>
-        </head>
-        <body>
-            <h1>LATIHAN CSS</h1>
-        </body>
-    </html>
-</DOCTYPE>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan CSS</title>
+    <link rel="stylesheet" href="latihan-css.css">
+</head>
+<body>
+    <h1>Latihan CSS</h1>
+
+    <nav>
+        <a href="#latihan1">Latihan 1</a>
+        <a href="#latihan2">Latihan 2</a>
+        <a href="#latihan3">Latihan 3</a>
+    </nav>
+
+    <section id="latihan1">
+        <h2>Latihan 1: Tutorial HTML</h2>
+
+        <!-- Fauzi Hizbullah -->
+        <article>
+            <h3>Cara Memasukkan Gambar</h3>
+            <p>Untuk menambahkan gambar di HTML, gunakan tag <code>&lt;img&gt;</code>.</p>
+            <img src="gambar-contoh.jpg" alt="Contoh Gambar" width="300">
+        </article>
+
+        <!-- Fauzi Hizbullah -->
+        <article>
+            <h3>Cara Membuat Hyperlink</h3>
+            <p>Gunakan tag <code>&lt;a&gt;</code> untuk membuat hyperlink.</p>
+            <p><a href="https://www.example.com">Kunjungi contoh website</a></p>
+        </article>
+
+        <!-- Fauzi Hizbullah -->
+        <article>
+            <h3>Cara Membuat Ordered List & Unordered List</h3>
+            <p>Gunakan tag <code>&lt;ol&gt;</code> untuk daftar berurutan dan <code>&lt;ul&gt;</code> untuk daftar tidak berurutan.</p>
+            <ol>
+                <li>Pertama</li>
+                <li>Kedua</li>
+                <li>Ketiga</li>
+            </ol>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </article>
+
+        <!-- Fauzi Hizbullah -->
+        <article>
+            <h3>Video dan Audio</h3>
+            <video width="320" height="240" controls>
+                <source src="video-contoh.mp4" type="video/mp4">
+                Browser Anda tidak mendukung tag video.
+            </video>
+
+            <audio controls>
+                <source src="audio-contoh.mp3" type="audio/mp3">
+                Browser Anda tidak mendukung tag audio.
+            </audio>
+        </article>
+
+        <!-- Fauzi Hizbullah -->
+        <article>
+            <h3>Canvas dengan Gambar Lingkaran</h3>
+            <canvas id="myCanvas" width="200" height="200"></canvas>
+            <script>
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+                ctx.fillStyle = "blue";
+                ctx.fill();
+                ctx.stroke();
+            </script>
+
+<h3>Canvas dengan animasi</h3>
+<canvas id="animationCanvas" width="400" height="200"></canvas>
+<script>
+    var canvas = document.getElementById("animationCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var x = 0;
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Hapus frame sebelumnya
+        ctx.fillStyle = "green";
+        ctx.fillRect(x, 50, 50, 50); // Gambar kotak bergerak
+        x += 2; // Pindahkan kotak ke kanan
+        if (x < canvas.width) {
+            requestAnimationFrame(animate); // Ulangi animasi
+        }
+    }
+    animate();
+</script>
+            
+        </article>
+    </section>
+
+    <section id="latihan2">
+        <h2>Latihan 2: Form</h2>
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+            <p>It's free and anyone can join</p>
+
+            <form>
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">New Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="gender">I am</label>
+                <select id="gender" name="gender">
+                    <option value="" disabled selected>Select Sex</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+
+                <label>Birthday</label>
+                <div class="birthday">
+                    <select name="month">
+                        <option value="" disabled selected>Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+
+                    <select name="day">
+                        <option value="" disabled selected>Day</option>
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+
+                    <select name="year">
+                        <option value="" disabled selected>Year</option>
+                        <script>
+                            const yearNow = new Date().getFullYear();
+                            for (let i = yearNow; i >= 1900; i--) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="latihan3">
+        <h2>Latihan 3: CV Saya</h2>
+        <div class="cv-container">
+            <img src="foto-saya.jpg" alt="Foto Fauzi Hizbullah">
+            <h3>Fauzi Hizbullah</h3>
+            <p><strong>Alamat:</strong> Depok, Jawa Barat, Indonesia</p>
+            <p><strong>Email:</strong> fauzi@example.com</p>
+            <p><strong>Telepon:</strong> +62 812-3456-7890</p>
+            <p><strong>Keahlian:</strong> Laravel, PHP, HTML, CSS, JavaScript</p>
+            <p><strong>Pengalaman:</strong> Administrator Autoglass Workshop (2019-2023)</p>
+            <p><strong>Deskripsi:</strong> Saya adalah seorang calon freelancer yang sedang mendalami pemrograman web.</p>
+        </div>
+    </section>
+</body>
+</html>
